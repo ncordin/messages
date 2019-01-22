@@ -1,0 +1,9 @@
+.message-list {
+}
+
+.message {
+  background-color: lightskyblue;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 15px;
+}
