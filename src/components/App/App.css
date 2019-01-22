@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  height: 80vh;
+  margin: auto;
+  margin-top: 10vh;
+  width: 60vh;
+  border: 2px solid orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-header {
+  flex-basis: 80px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-content {
+  flex: 1;
+}
+
+.layout-footer {
+  flex-basis: 50px;
+  background-color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-list {
+}
+
+.message {
+  background-color: lightskyblue;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 15px;
+}
