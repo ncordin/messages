@@ -9,9 +9,10 @@ body {
 }
 
 .App {
+  position: relative;
+  top: 10vh;
   height: 80vh;
   margin: auto;
-  margin-top: 10vh;
   width: 60vh;
   border: 2px solid orange;
   display: flex;
