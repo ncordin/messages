@@ -7,3 +7,7 @@
   padding: 10px;
   margin: 15px;
 }
+
+.message.private {
+  background-color: lightcoral;
+}

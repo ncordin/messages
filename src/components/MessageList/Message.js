@@ -1,5 +1,12 @@
 import React from 'react';
+import { Icon } from 'antd';
 
 export default function Message({ message }) {
-  return <div className="message">{message.content}</div>;
+  const isPrivate = !message.isPublic;
+
+  return (
+    <div className={`message ${isPrivate ? 'private' : ''}`}>
+      {isPrivate && <Icon type="lock" />} {message.content}
+    </div>
+  );
 }
