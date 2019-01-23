@@ -1,6 +1,7 @@
 .layout-header {
-  flex-basis: 80px;
-  background-color: antiquewhite;
+  flex-basis: 70px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
 
   display: flex;
   justify-content: center;
@@ -14,11 +15,13 @@
 .layout-content {
   flex: 1;
   overflow-y: auto;
+  background-color: white;
 }
 
 .layout-footer {
-  flex-basis: 50px;
-  background-color: gold;
+  flex-basis: 60px;
+  background-color: white;
+  border-top: 1px solid #eee;
 
   display: flex;
   justify-content: center;

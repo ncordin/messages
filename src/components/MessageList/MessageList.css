@@ -1,13 +1,12 @@
-.message-list {
-}
-
 .message {
-  background-color: lightskyblue;
+  background-color: #7aadff;
   border-radius: 15px;
   padding: 10px;
   margin: 15px;
+  font-size: 15px;
+  color: white;
 }
 
 .message.private {
-  background-color: lightcoral;
+  background-color: #e17055;
 }

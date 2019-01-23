@@ -1,1 +1,1 @@
-export const generateUid = () => Math.round(Math.random() * 10000);
+export const generateUid = () => Math.round(Math.random() * 100000);

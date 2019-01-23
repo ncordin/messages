@@ -2,6 +2,12 @@ import { Component } from 'react';
 
 import initialMessages from '../../data/messages';
 
+/**
+ * This component provide the messages logic by using a render props.
+ * https://reactjs.org/docs/render-props.html
+ *
+ * This way, state and logic related to messages is extracted in a single place and could be re-use.
+ */
 class MessagesProvider extends Component {
   state = { messages: initialMessages };
 

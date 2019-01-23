@@ -24,7 +24,7 @@ class MessageInput extends Component {
 
         <Form.Item>
           <Input
-            placeholder="Send messages"
+            placeholder="Type message here"
             value={value}
             onChange={handleValueChange}
           />
