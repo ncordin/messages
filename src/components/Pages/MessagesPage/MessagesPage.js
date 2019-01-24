@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
-import { Header, Content, Footer } from '../../common/Layout';
+import { Header, Content, Footer } from '../../../common/Layout';
 
-import { MessageList, MessagesProvider } from '../MessageList';
-import MessageInput from '../MessageInput';
+import { MessageList, MessagesProvider } from '../../MessageList';
+import MessageInput from '../../MessageInput';
 
 export default function MessagePage() {
   return (
