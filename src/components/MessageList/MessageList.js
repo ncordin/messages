@@ -1,8 +1,14 @@
 import React, { Component, createRef } from 'react';
+import PropTypes from 'prop-types';
 
 import Message from './Message';
+import { shapeOfMessage } from '../../constants/message';
 
 class MessageList extends Component {
+  static propTypes = {
+    messages: PropTypes.arrayOf(PropTypes.shape(shapeOfMessage)),
+  };
+
   constructor() {
     super();
     this.bottomRef = createRef();

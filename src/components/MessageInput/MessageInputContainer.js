@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { generateUid } from '../../helpers/numbers';
 import MessageInput from './MessageInput';
 
 class MessageInputContainer extends Component {
+  static propTypes = {
+    addMessage: PropTypes.func.isRequired,
+  };
+
   state = { value: '', isPublic: true };
 
   handleValueChange = event => {

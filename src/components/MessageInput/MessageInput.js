@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Input, Button, Switch, Icon } from 'antd';
 
 class MessageInput extends Component {
+  static propTypes = {
+    value: PropTypes.string.isRequired,
+    isPublic: PropTypes.bool.isRequired,
+    handleValueChange: PropTypes.func.isRequired,
+    handleIsPublicChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+  };
+
   render() {
     const {
       value,

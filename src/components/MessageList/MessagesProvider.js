@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import initialMessages from '../../data/messages';
 
@@ -9,6 +10,10 @@ import initialMessages from '../../data/messages';
  * This way, state and logic related to messages is extracted in a single place and could be re-use.
  */
 class MessagesProvider extends Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+  };
+
   state = { messages: initialMessages };
 
   addMessage = message => {

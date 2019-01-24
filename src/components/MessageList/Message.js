@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'antd';
 
-export default function Message({ message }) {
+import { shapeOfMessage } from '../../constants/message';
+
+function Message({ message }) {
   const isPrivate = !message.isPublic;
 
   return (
@@ -10,3 +13,9 @@ export default function Message({ message }) {
     </div>
   );
 }
+
+Message.propTypes = {
+  message: PropTypes.shape(shapeOfMessage).isRequired,
+};
+
+export default Message;
