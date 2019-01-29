@@ -6,7 +6,7 @@ import { shapeOfMessage } from '../../constants/message';
 
 class MessageList extends Component {
   static propTypes = {
-    messages: PropTypes.arrayOf(PropTypes.shape(shapeOfMessage)),
+    messages: PropTypes.arrayOf(PropTypes.shape(shapeOfMessage)).isRequired
   };
 
   constructor() {

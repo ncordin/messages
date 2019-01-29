@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { MessagesProvider } from '../MessageList';
+import { MessagesProvider } from './index';
 import initialMessages from '../../data/messages';
 
 describe('MessagesProvider', () => {
@@ -27,7 +27,7 @@ describe('MessagesProvider', () => {
     addMessageReference({
       id: 83262,
       content: 'This was added during the test',
-      isPublic: true,
+      isPublic: true
     });
 
     wrapper.update();
