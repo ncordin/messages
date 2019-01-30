@@ -1,40 +1,33 @@
-import React, { Component, createRef } from 'react';
+import React, { createRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Message from './Message';
 import { shapeOfMessage } from '../../constants/message';
 
-class MessageList extends Component {
-  static propTypes = {
-    messages: PropTypes.arrayOf(PropTypes.shape(shapeOfMessage)).isRequired
-  };
+const bottomRef = createRef();
 
-  constructor() {
-    super();
-    this.bottomRef = createRef();
-  }
-
+function MessageList({ messages }) {
   /**
    * After this component render a new message, we want to scroll so it will be visible.
    */
-  componentDidUpdate() {
+  useEffect(() => {
     // scrollIntoView() may not be available in testing context.
-    this.bottomRef.current.scrollIntoView &&
-      this.bottomRef.current.scrollIntoView({ behavior: 'smooth' });
-  }
+    bottomRef.current.scrollIntoView &&
+      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+  });
 
-  render() {
-    const { messages } = this.props;
-
-    return (
-      <div className="message-list">
-        {messages.map(message => (
-          <Message key={message.id} message={message} />
-        ))}
-        <div ref={this.bottomRef} />
-      </div>
-    );
-  }
+  return (
+    <div className="message-list">
+      {messages.map(message => (
+        <Message key={message.id} message={message} />
+      ))}
+      <div ref={bottomRef} />
+    </div>
+  );
 }
+
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.shape(shapeOfMessage)).isRequired
+};
 
 export default MessageList;

@@ -1,53 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { generateUid } from '../../helpers/numbers';
 import MessageInput from './MessageInput';
 
-class MessageInputContainer extends Component {
-  static propTypes = {
-    addMessage: PropTypes.func.isRequired,
+function MessageInputContainer({ addMessage }) {
+  const [value, setValue] = useState('');
+  const [isPublic, setIsPublic] = useState(true);
+
+  const handleValueChange = event => {
+    setValue(event.target.value);
   };
 
-  state = { value: '', isPublic: true };
-
-  handleValueChange = event => {
-    this.setState({ value: event.target.value });
+  const handleIsPublicChange = () => {
+    setIsPublic(previousState => !previousState);
   };
 
-  handleIsPublicChange = () => {
-    this.setState(previousState => ({ isPublic: !previousState.isPublic }));
-  };
-
-  handleSubmit = event => {
-    const { value, isPublic } = this.state;
-    const { addMessage } = this.props;
-
+  const handleSubmit = event => {
     event.preventDefault();
 
     value &&
       addMessage({
         id: generateUid(),
         content: value,
-        isPublic,
+        isPublic
       });
 
-    this.setState({ value: '' });
+    setValue('');
   };
 
-  render() {
-    const { value, isPublic } = this.state;
-
-    return (
-      <MessageInput
-        value={value}
-        isPublic={isPublic}
-        handleValueChange={this.handleValueChange}
-        handleIsPublicChange={this.handleIsPublicChange}
-        handleSubmit={this.handleSubmit}
-      />
-    );
-  }
+  return (
+    <MessageInput
+      value={value}
+      isPublic={isPublic}
+      handleValueChange={handleValueChange}
+      handleIsPublicChange={handleIsPublicChange}
+      handleSubmit={handleSubmit}
+    />
+  );
 }
+
+MessageInputContainer.propTypes = {
+  addMessage: PropTypes.func.isRequired
+};
 
 export default MessageInputContainer;

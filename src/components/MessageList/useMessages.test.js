@@ -1,28 +1,28 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { MessagesProvider } from './index';
+import { useMessages } from './index';
 import initialMessages from '../../data/messages';
 
-describe('MessagesProvider', () => {
+let addMessageReference = null;
+
+const ComponentWithMessages = () => {
+  const [messages, addMessage] = useMessages();
+
+  addMessageReference = addMessage;
+
+  return messages.map(message => <p key={message.id}>{message.content}</p>);
+};
+
+describe('useMessages', () => {
   it('renders without crashing', () => {
-    const wrapper = mount(<MessagesProvider>{() => null}</MessagesProvider>);
+    const wrapper = mount(<ComponentWithMessages />);
 
     expect(wrapper).toBeTruthy();
   });
 
   it('renders messages and allow to add a new one', () => {
-    let addMessageReference = null;
-    const wrapper = mount(
-      <MessagesProvider>
-        {({ messages, addMessage }) => {
-          // We make a copy of the function reference so we can use it later.
-          addMessageReference = addMessage;
-
-          return messages.map(({ id, content }) => <p key={id}>{content}</p>);
-        }}
-      </MessagesProvider>
-    );
+    const wrapper = mount(<ComponentWithMessages />);
 
     addMessageReference({
       id: 83262,
