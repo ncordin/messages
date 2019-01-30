@@ -8,6 +8,10 @@ A messages app with React 💬 ⚛️
   <img width="450" src="https://github.com/ncordin/messages/blob/master/demo.png" alt="demo">
 </p>
 
+## Hooks 🎣
+
+If you like React hooks, checkout the fun_with_hooks branch 👍
+
 ## Development
 
 Run it locally:
